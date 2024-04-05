@@ -1,0 +1,8 @@
+POST http://localhost:3333/events
+Content-Type: application/json
+
+{
+    "title": "Jogo no buteco do Joao",
+    "details": "Acompanhe a final do interestadual no melhor buteco da cidade",
+    "maximumAttendees": 150
+}
