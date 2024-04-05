@@ -10,19 +10,30 @@ const prisma = new PrismaClient({
 })
 
 app.post('/events', async (req, res) => {
-    // validação dos dados
+    // data validation
     const createEventSchema = z.object({
         title: z.string().min(4),
         details: z.string().nullable(),
         maximumAttendees: z.number().int().positive().nullable(),
     })
-    // comparacao - recebido(req.body) x esperado(createEventSchema)
+    // compare - receive(req.body) x expect(createEventSchema)
     const data = createEventSchema.parse(req.body)
 
     //slug
     const slug = generateSlug(data.title)
 
-    // inserindo os dados na tabela
+    // same slug validation
+    const eventWithSameSlug = await prisma.event.findUnique({
+        where: {
+            slug,
+        }
+    })
+
+    if (eventWithSameSlug !== null) {
+        throw new Error('Another event with same title already exists.')
+    }
+
+    // inserting datas on table
     const event = await prisma.event.create({
         data: {
             title: data.title,

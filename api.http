@@ -2,7 +2,7 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-    "title": "Jogo no buteco do Joao",
-    "details": "Acompanhe a final do interestadual no melhor buteco da cidade",
-    "maximumAttendees": 150
+    "title": "Peça teatral - O Mágico de OZ",
+    "details": "Vemha prestigiar nossos pequenos em uma super peça teatral",
+    "maximumAttendees": 100
 }
