@@ -2,7 +2,17 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-    "title": "Peça teatral - O Mágico de OZ",
-    "details": "Vemha prestigiar nossos pequenos em uma super peça teatral",
-    "maximumAttendees": 100
+    "title": "Evento teste",
+    "details": "Evento teste",
+    "maximumAttendees": 1
+}
+
+###
+
+POST http://localhost:3333/events/7a231ce9-be87-4623-976e-0707894469d2/attendees
+Content-Type: application/json
+
+{
+    "name": "João Silva",
+    "email": "joao34@gmail.com"
 }
